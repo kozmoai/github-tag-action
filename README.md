@@ -1,6 +1,6 @@
 # github-tag-action
 
-A Github Action to automatically bump and tag master, on merge, with the latest SemVer formatted version.
+A Github Action to automatically bump and tag main, on merge, with the latest SemVer formatted version.
 
 
 ### Usage
@@ -10,7 +10,7 @@ name: Bump version
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +34,7 @@ _NOTE: set the fetch-depth for `actions/checkout@v2` to be sure you retrieve all
 - **GITHUB_TOKEN** **_(required)_** - Required for permission to tag the repo.
 - **DEFAULT_BUMP** _(optional)_ - Which type of bump to use when none explicitly provided (default: `minor`).
 - **WITH_V** _(optional)_ - Tag version with `v` character.
-- **RELEASE_BRANCHES** _(optional)_ - Comma separated list of branches (bash reg exp accepted) that will generate the release tags. Other branches and pull-requests generate versions postfixed with the commit hash and do not generate any tag. Examples: `master` or `.*` or `release.*,hotfix.*,master` ...
+- **RELEASE_BRANCHES** _(optional)_ - Comma separated list of branches (bash reg exp accepted) that will generate the release tags. Other branches and pull-requests generate versions postfixed with the commit hash and do not generate any tag. Examples: `main` or `.*` or `release.*,hotfix.*,main` ...
 - **CUSTOM_TAG** _(optional)_ - Set a custom tag, useful when generating tag based on f.ex FROM image in a docker image. **Setting this tag will invalidate any other settings set!**
 - **SOURCE** _(optional)_ - Operate on a relative path under $GITHUB_WORKSPACE.
 - **DRY_RUN** _(optional)_ - Determine the next version without tagging the branch. The workflow can use the outputs `new_tag` and `tag` in subsequent steps. Possible values are `true` and `false` (default).
@@ -64,12 +64,12 @@ If `#none` is contained in the commit message, it will skip bumping regardless `
 
 - Add this action to your repo
 - Commit some changes
-- Either push to master or open a PR
+- Either push to main or open a PR
 - On push (or merge), the action will:
   - Get latest tag
   - Bump tag with minor version unless any commit message contains `#major` or `#patch`
   - Pushes tag to github
-  - If triggered on your repo's default branch (`master` or `main` if unchanged), the bump version will be a release tag.
+  - If triggered on your repo's default branch (`main` or `master` if unchanged), the bump version will be a release tag.
   - If triggered on any other branch, a prerelease will be generated, depending on the bump, starting with `*-<PRERELEASE_SUFFIX>.1`, `*-<PRERELEASE_SUFFIX>.2`, ...
 
 ### Credits

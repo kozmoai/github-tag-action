@@ -1,7 +1,7 @@
 FROM node:12-alpine3.15
-LABEL "repository"="https://github.com/datafabriclab/github-tag-action"
-LABEL "homepage"="https://github.com/datafabriclab/github-tag-action"
-LABEL "maintainer"="Nick Sjostrom"
+LABEL "repository"="https://github.com/kozmoai/github-tag-action"
+LABEL "homepage"="https://github.com/kozmoai/github-tag-action"
+LABEL "maintainer"="kozmoai"
 
 COPY entrypoint.sh /entrypoint.sh
 
