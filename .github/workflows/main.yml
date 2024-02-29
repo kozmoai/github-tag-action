@@ -13,7 +13,7 @@ jobs:
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.API_TOKEN_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.API_GITHUB_TOKEN }}
 
 #name: Update main version
 #run-name: Move ${{ github.event.inputs.major }} to ${{ github.event.inputs.target }}
