@@ -1,6 +1,6 @@
 name: 'Github Tag Bump'
 description: 'Bump and push git tag on merge'
-author: 'Datafabric'
+author: 'Kozmoai'
 runs:
   using: 'docker'
   image: 'Dockerfile'
